@@ -1,0 +1,346 @@
+\section{Einführung}
+
+\textbf{Ziel:} Analyse von Diskretisierungs- und Lösungsmethoden für PDEs partial differential equations.
+
+\subsection{PDE-Modelle}
+
+\subsection{Diffusion (als Prototyp = Modellproblem)}
+$\Omega \in \R^D$
+Partielle Differentialgleichungen (PDE) sind Gleichungen, die partielle
+Ableitungen einer unbekannten Funktion $u$ in mehreren Variablen enthalten.
+Im Folgenden nehmen wir an, dass alle Grö\ss en hinreichend glatt sind.
+
+
+\begin{Bezeichnung}
+    \begin{align*}
+        &u = u(x,t)     && \text{Zustandsgrö\ss e} \\
+        &x = \left(\begin{smallmatrix}
+                x_1 \\
+                \vdots \\
+                x_d
+              \end{smallmatrix}\right)\in\Omega\subset\R^d
+                        && \text{Ortsvariable} \\
+        &t\in [0,T]	    && \text{Zeitvariable} \\
+        &\partial_t = \frac{\partial}{\partial t}
+                        && \text{partielle Ableitung nach der Zeit}
+    \end{align*}
+\end{Bezeichnung}
+
+
+Sei $S(u)$ eine (Volumen-)Dichte oder Konzentration.
+Für jedes Kontroll-Volumen $V\subset\Omega$ beschreibt
+\begin{eqnarray*}
+     \partial_t \int_{V} S(u(x, t))\,dx
+\end{eqnarray*}
+die zeitliche änderung von $S(u)$ in $V$.
+
+
+Die änderung entsteht durch:
+
+
+\begin{enumerate}[1)]
+  \item
+      Quellen und Senken $Q = Q(x, t, u(x,t))$: \\
+      Falls $Q > 0$, dann wird $S(u)$ erzeugt. \\
+      Falls $Q < 0$, dann wird $S(u)$ verringert.
+  \item
+      Fluss $J(x,t)$ durch den Rand von $\partial V$: \\
+      $J = \left(\begin{smallmatrix}
+              J_1 \\ \vdots \\ J_d
+	      \end{smallmatrix}\right)$,
+      $J_i$ Fluss-Dichte in $x_i$-Richtung. \\
+      $J\nu = \sum_{i=0}^d \nu_i J_i$ Fluss über den Rand. \\
+      (dabei ist $\nu\colon \partial V \to \R^d$ mit $|\nu| = 1$ die
+      äu\ss{}ere Einheitsnormale)
+\end{enumerate}
+
+
+Die (Massen-) Erhaltung ergibt, falls das Volumen $V$ nicht von der Zeit
+abhängt
+\begin{eqnarray*}
+      \int_V \partial_t S(u(x,t)) \dx
+    = - \int_{\partial V} J(x,t) \nu \da + \int_V Q(x,t,u(x,t))) \dx.
+\end{eqnarray*}
+Sie sagt aus das weder Masse erzeugt noch erschaffen werden kann. Die
+zeitlichen änderungen im Volumen $V$ sind Folgen des (Masse-) Transports
+über den Rand $\partial V$.
+
+
+\textbf{Satz von Gau\ss}
+
+  Sei $V\subset\R^d$ beschränkt mit stückweise glattem Rand. Sei $F\in
+  C^1(V,\R^d)$ ein Vektorfeld. Dann gilt
+  \begin{eqnarray*}
+      \int_V \operatorname{div} F(x) \dx = \int_{\partial V} F(x) \nu(x) \da,
+  \end{eqnarray*}
+  mit der Divergenz $\operatorname{div} F = \nabla \cdot F = \sum_{i=0}^d
+  \partial_i F_i, \
+  \nabla = \left(\begin{smallmatrix}
+                \partial_1 \\ \vdots \\ \partial_d
+           \end{smallmatrix}\right) \text{ und}
+  \ \partial_i = \frac{\partial}{\partial x_i}$.
+
+
+\begin{Anwendung}
+    Es gilt also für alle $V\subset \Omega$
+    \begin{eqnarray*}
+        \int_V \partial_tS(u(x,t)) + \operatorname{div} J(x,t)
+        - Q(x,t,u(x,t)))\,dx = 0.
+    \end{eqnarray*}
+    Da $V\subset\Omega$ beliebig folgt daraus die
+    \emph{Erhaltungsgleichung} in differentieller Form
+    \begin{eqnarray*}
+        \partial_tS(u(x,t)) + \operatorname{div} J(x,t) - Q(x,t,u(x,t)) = 0,
+        \qquad \forall x\in \Omega, \ t\in [0,T].
+    \end{eqnarray*}
+\end{Anwendung}
+
+
+Die Erhaltungsgleichung muss durch (phenomenologische)
+\emph{konstitutive Gesetze} geschlossen werden, die eine Beziehung zwischen den
+Zustandsgrö\ss en $u$ und den Fluss $J$ postulieren.
+
+
+\begin{Beispiel}
+    $\Omega$ sei mit einer Flüssigkeit gefüllt und $S(u) = u$ die
+    Konzentration einer gelösten Substanz. \\
+    \emph{Szenario I} \\
+    Flüssigkeit ruht, die Konzentration strebt ins Gleichgewicht von hoher zu
+    niedriger Konzentration:
+    \begin{eqnarray*}
+        J^{(1)} = -K\nabla u, \qquad K > 0 \qquad \left[\frac{m^2}{s}\right]
+        \qquad \text{(Materialparameter)}\\
+    \end{eqnarray*}
+    und wir erhalten die \emph{Diffusionsgleichung}
+    \begin{eqnarray*}
+        \partial_t u - \nabla \cdot (K \nabla u) = Q.
+    \end{eqnarray*}
+    \emph{Szenario II} \\
+    Flüssigkeit bewegt sich mit der Geschwindigkeit $c\colon \Omega \to \R^d$:
+    \begin{eqnarray*}
+        J^{(2)} = cu
+    \end{eqnarray*}
+    sodass die \emph{Transportgleichung} gegeben ist durch
+    \begin{eqnarray*}
+        \partial_t u + \nabla \cdot (cu) = 0.
+    \end{eqnarray*}
+    Zusammen ergibt sich die \emph{Konvektions-Diffusions-Gleichung}
+    \begin{eqnarray*}
+        \partial_t u - \nabla \cdot (K \nabla u  - cu) = Q.
+    \end{eqnarray*}
+\end{Beispiel}
+
+
+\begin{Entdimensionalisierung}
+    Fixiere Refernzgrö\ss en $x_\text{ref}, \ u_\text{ref}$ und $t_\text{ref}$.
+    Reskaliere dazu
+    \begin{eqnarray*}
+        x\mapsto \frac{x_i}{x_\text{ref}}, &
+        u\mapsto \frac{u_i}{u_\text{ref}}, &
+        t\mapsto \frac{t_i}{t_\text{ref}}.
+    \end{eqnarray*}
+    Somit erhält man keine Einheiten. Die typische Grö\ss enordnung ist 1.
+\end{Entdimensionalisierung}
+
+
+
+\subsection{Randbedingungen}
+
+
+Betrachte $\partial_t S(x,u(x,t)) + \nabla \cdot (C(x,u(x,t)) - K(x,\nabla
+u(x,t))) = Q(x,t,u(x,t))$ im Raum-Zeit-Zylinder $(x,t)\in \Omega\times (0,T)
+\subset \R^d\times \R$.
+
+Im Wesentlichen unterscheiden wir drei Randbedingungen, wozu wir den Rand in
+drei disjunkte Teile unterteilen:
+$\partial\Omega = \Gamma_1\cup \Gamma_2\cup \Gamma_3\colon$
+
+\begin{enumerate}[1)]
+    \item
+	Fluss Randbedingungen auf $\Gamma_1$ (Neumann RB)
+	\begin{eqnarray*}
+	    -(C(u) - K(\nabla u)) \cdot \nu = g_1
+	\end{eqnarray*}
+    \item
+	Gemischte Randbedingungen auf $\Gamma_2$ (Robin RB)
+	\begin{eqnarray*}
+	    -(C(u) - K(\nabla u)) \cdot \nu + \alpha u = g_2
+	\end{eqnarray*}
+     \item
+	Dirichlet Randbedingungen auf $\Gamma_3$ (wesentliche RB)
+	\begin{eqnarray*}
+	    u = g_3
+	\end{eqnarray*}
+\end{enumerate}
+
+
+Es liegen homogene Randbedingungen vor falls $g_i = 0$.
+
+
+\begin{Spezialfälle}
+    Wir erhalten:
+    \begin{enumerate}[1)]
+	\item
+	    den Sturm Liouville Operator für $d=1$ im Raum.
+	\item
+	    eine stationäre Gleichung, falls keine Zeitableitung vorliegt.
+	\item
+	    die lineare Gleichung $Q(x,u) = f(x) - \underbrace{q(x)u(x)}
+	    _{\text{Reaktionsterm}}$
+	    mit $C(u) = cu, \ K(\nabla u) = K\nabla u$.
+	\item
+	    die Poisson-Gleichung $-\Delta u = f$ für $c\equiv 0, \
+	    K\equiv 1, \ q\equiv 0$.
+	\item
+	    die Laplace-Gleichung $-\Delta u = 0$ für $f\equiv 0$.
+    \end{enumerate}
+\end{Spezialfälle}
+
+
+
+\subsection{Modell-Problem (die Poisson-Gleichung)}
+
+
+\begin{Definition}
+\label{def:1.1}
+    Sei $\Omega\subset \R$ beschränkt mit stückweise glattem Rand. Sei
+    $f\in C(\Omega), \ g\in C(\partial\Omega)$. Dann hei\ss t $u\in C^2(\Omega)
+    \cap C(\overline\Omega)$ mit
+    \begin{eqnarray*}
+          -\Delta u(x)
+        &=& f(x), \quad x\in \Omega \qquad \ \ (\text{in } \Omega) \\
+            u(x)
+        &=& g(x), \quad x\in \partial\Omega \qquad (\text{auf } \partial\Omega)
+    \end{eqnarray*}
+    eine (klassische) Lösung der Poisson-Gleichung (mit Dirichlet
+    Randbedingungen).
+\end{Definition}
+
+
+\begin{Beispiel}
+    Mit Hilfe von Fundamentallösungen kann eine Lösung der Poisson-
+    Gleichung konstruiert werden. Hierbei ist $K(x,y) = \Psi(|x-y|)$ die
+    Fundamentallösung, wobei
+    \begin{eqnarray*}
+        \Psi(r) = \begin{cases}
+                      \frac{r^{2-d}}{(2-d)\omega_d}, 	& d>2 \\
+                      \frac{\log{r}}{2\pi}, 		& d=2
+                  \end{cases},
+    \end{eqnarray*}
+    und $\omega_d$ das Volumen der Einheitssphäre ist. Sie erfüllt
+    $\Delta_x K(x,y) = 0$ für $x\neq y$. Falls $u\in C^2(\overline\Omega)$
+    ist, dann ist eine Lösung der Poisson-Gleichung gegeben durch
+    \begin{eqnarray*}
+          u(y)
+        = \int_{\partial \Omega} \big(\partial_\nu K(x,y) g(x) - K(x,y) h(x) \big) \da_x
+          -\int_\Omega K(x,y) f(x) \dx
+    \end{eqnarray*}
+    mit der äu\ss{}eren Einheitsnormalen $\nu\colon \partial\Omega \to
+    \R^d, \ |\nu| = 1, \ h(x) = \partial_\nu u(x)$, wobei die Normalenableitung
+    $\partial_\nu = \nu\cdot\nabla = \sum_{i=0}^d \nu_i \partial_i$ und
+    $g(x) = u(x), \ f(x) = -\Delta u(x)$.
+
+    $\textbf{Problem:}$ Wenn $f$ und $g$ vorgegeben sind, muss $h$ bestimmt
+    werden!
+\end{Beispiel}
+
+
+\begin{Bezeichnung}
+    Eine Funktion $u \in C^2(\Omega)$ heißt harmonisch, falls $\Delta u = 0$ in $\Omega$ gilt.
+\end{Bezeichnung}
+
+
+\begin{Bemerkung}
+    Wenn $\Delta u \le 0$, dann ist $u(y) \le \frac{1}{R^d \omega_d}
+    \int_{|x-y|=R} u(x) \da$.
+\end{Bemerkung}
+
+
+\begin{Maximumsprinzip}
+\label{max:1.2}
+    Sei $u\in C^2(\Omega)\cap C(\overline\Omega)$ mit $\Delta u \le 0$.
+    Dann gilt
+    \begin{eqnarray*}
+        \sup_{x\in \Omega} u(x) = \sup_{x\in \partial\Omega} u(x).
+    \end{eqnarray*}
+\end{Maximumsprinzip}
+
+
+\begin{proof}
+    Ohne Beweis!
+\end{proof}
+
+
+\begin{Folgerung}
+    \label{fol:1.3}
+    Das Poisson-Problem \eqref{def:1.1} hat höchstens eine Lösung.
+\end{Folgerung}
+
+
+\begin{proof}
+    Seien $u$ und $v$ Lösungen von
+    \begin{eqnarray*}
+        -\Delta u(x) &=& f(x), \
+        -\Delta  v(x) = f(x)
+        \qquad \text{ in } \Omega \\
+        u(x) &=& g(x),
+        \ \ \quad \ v(x) = g(x)
+        \qquad \text{ auf } \partial\Omega. 
+    \end{eqnarray*}
+    Dann  löst $w(x) = u(x) - v(x)$
+    \begin{eqnarray*}
+        -\Delta w(x) &=& 0 \qquad \text{ in } \Omega \\
+        w(x) &=& 0 \qquad \text{ auf } \partial\Omega.
+    \end{eqnarray*}
+    Mit \eqref{max:1.2} folgt
+    \begin{eqnarray*}
+        \sup_{x\in \Omega} w(x) = \sup_{x\in \partial\Omega} w(x) = 0
+        \quad \text{und } \inf_{x\in \Omega} w(x) = 0.
+    \end{eqnarray*}
+    Also $w(x) \equiv 0$.
+\end{proof}
+
+
+\begin{Definition}
+    \label{def:1.4}
+    $\Omega\subset \R^d$ ist ein Lipschitz-Gebiet, wenn
+    \begin{enumerate}[a)]
+	\item
+	    $\Omega$ ist offen in $\R^d$,
+	\item
+	    $\Omega$ ist zusammenhängend,
+	\item
+	    $\partial\Omega$ ist eine Lipschitz-Mannigfaltigkeit, d.h. für alle
+	    $y\in \partial\Omega$ existiert eine lokale Karte $\Psi\in C^{0,1}
+        (V, \R^d)$ mit $V\subset \R^{d-1}$ offen und $y\in \Psi(V)
+        \subset \partial\Omega$.
+    \end{enumerate}
+\end{Definition}
+
+
+\begin{Beispiel}
+    Das Einheitsquadrat
+    $\Omega = (0,1)^2$ ist ein Lipschitz-Gebiet. Offensichtlich ist $\Omega$
+    offen und zusammenhängend. Für die Lipschitz-Mannigfaltigkeit $\partial \Omega$ ist
+    beispielsweise für
+    $\ y =  \left(\begin{smallmatrix}
+		0 \\ 0
+	    \end{smallmatrix}\right)$
+    die Abbildung
+    $\Psi(t) = \left(\begin{smallmatrix}
+		  t + |t| \\ -t + |t|
+              \end{smallmatrix}\right)$
+    für $t \in V = (-\frac{1}{2},\frac{1}{2})$ eine lokale Karte mit $y = \Psi(0)$.
+\end{Beispiel}
+
+
+\begin{Satz}
+    \label{satz:1.5}
+    In einem Lipschitz-Gebiet hat das Poisson-Problem \eqref{def:1.1} mit
+    Dirichlet Randbedingungen eine eindeutige Lösung.
+\end{Satz}
+
+
+\begin{proof}
+    Ohne Beweis!
+\end{proof}
