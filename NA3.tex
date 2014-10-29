@@ -17,7 +17,7 @@
 \usepackage[amsmath,amsthm,thmmarks]{ntheorem}
 \usepackage{textpos}
 \usepackage{enumerate}
-
+\usepackage{epstopdf}
 \usepackage{float}
 % \usepackage[latin1]{inputenc}
 \usepackage[utf8]{inputenc}
@@ -332,7 +332,7 @@
 
 \section{PDE-Modelle}
 
-\textbf{Ziel:} Analyse von Diskretisierungs- und Lösungsmethoden für PDEs partial differential equations.
+\textbf{Ziel:} Analyse von Diskretisierungs- und Lösungsmethoden für PDEs (partial differential equations).
 \subsection{Diffusion (als Prototyp = Modellproblem)}
 $\Omega \subset \R^D$ $(D=1,2,3 )$ ein Gebiet (offen, zusammenhängend) oft beschränkt.
 
@@ -346,9 +346,15 @@ Sei \begin{align*}
   \item
       Billanzgleichung in Gleichgewicht: \\ \qquad  \qquad für jedes Teilvolumen $\omega \subset \Omega$ mit genügend glatten Rand gilt:
 \begin{eqnarray*}
-      \int_{\partial \omega} \sigma \cdot n_{\omega} \da = \int_{\omega} f \dx  \qquad \text{mit  } \ n_{\omega} : \partial \omega \rightarrow \R^D \ \text{ (äu\ss ere Normalvektor)}
+      \int_{\partial \omega} \sigma \cdot n_{\omega} \da = \int_{\omega} f \dx  \qquad \text{mit  } \ n_{\omega} : \partial \omega \rightarrow \R^D \ \text{}
 \end{eqnarray*}
-      
+      \begin{figure}[!htb]
+\centering
+\includegraphics[scale=.7]{grafik/Zeichnung-4.eps}
+\caption{Äu\ss ere Normalvektor}
+\label{fig:digraph}
+\end{figure}
+
   \item
      Konstitutivgleichung für den Fluss:
      \begin{eqnarray*}
@@ -362,7 +368,7 @@ Sei \begin{align*}
      \end{enumerate}
 \begin{Satz}
     \label{satz:1.1}
-    Sei $\Omega \subset \R^D$ offen, und seien $\sigma \in \bC^1 (\Omega, \R^D), \ f \in \bC(\Omega) $  mit $$  \int_{\partial K} \sigma \cdot n_{K} \da = \int_{K} f \dx  \qquad \forall \ K \subset \Omega$$ Simplex (2D Dreieck). Dann gilt:  $$\div \sigma =f$$
+    Sei $\Omega \subset \R^D$ offen, und seien $\sigma \in \bC^1 (\Omega, \R^D), \ f \in \bC(\Omega) $  mit $$  \int_{\partial K} \sigma \cdot n_{K} \da = \int_{K} f \dx  \qquad \forall \ K \subset \Omega \ \ \text{   Simplex (2D Dreieck).}$$ Dann gilt:  $$\div \sigma =f$$
 \end{Satz}
 
 \begin{proof}
@@ -373,17 +379,14 @@ Sei \begin{align*}
    \begin{ann}
    Es existiert ein $x_0 \in \Omega$ mit \ $\div \sigma (x_0) \neq f(x_0)$\\ $\Rightarrow$ Es existiert eine offene Umgebung $U$ mit $x_0 \in U$ und o.E. \ $\div \sigma (x) - f(x) > 0 \ \ (x\in U)$
 \end{ann}\\ \newline
-wähle $K \subset U \Rightarrow \qquad \int_{K} (\div \sigma-f) \dx > 0 \ \ \lightning$
+wähle $K \subset U \Longrightarrow \qquad \int_{K} (\div \sigma-f) \dx > 0 \ \ \lightning$
 \end{proof}
 
 
 $\Longrightarrow \qquad f = \div \sigma = - \div \nabla u = - \Delta u \qquad$,wobei $\Delta = \sum \partial^2_d$ (Laplace-Operator)
 
-\begin{Spezielle Lösungen}
-$$
-\qquad    \Delta u = 0 \ \text{ (Laplace-Gleichungen) \qquad Die Lösungen hei\ss en harmonische Funktionen} $$
-
-
+\begin{Spezielle Lösungen}\
+\\ $ \Delta u = 0 \ \text{ Laplace-Gleichungen \qquad (Die Lösungen hei\ss en harmonische Funktionen)} $
 \begin{enumerate}[A)]
     \item 	
 	Lineare Polynome
@@ -393,63 +396,66 @@ $$
 	     \item
 	In 2D: Real und Imaginärteil holomorpher Funktionen. In $\C \backslash \{ 0 \} $ z.B:
 	\begin{eqnarray*}
-            u(z) =\Re (z^\alpha) \qquad \text{ mit } \alpha \in \R, \ z=r \exp (i \varphi), \ z^\alpha=r^\alpha \exp (i \alpha \varphi)
+            u(z) =\Re (z^\alpha) \qquad \text{ mit } \alpha \in \R, \ \ \ z=r \exp (i \varphi),\ \ \ z^\alpha=r^\alpha \exp (i \alpha \varphi)
 	\end{eqnarray*}
     \underline{Es gilt}: Holomorphe Funktionen sind durch die Randwerte eindeutig bestimmt! 
     	\end{enumerate}
 
 \end{Spezielle Lösungen}
 
-\begin{Beispiel}
-   \begin{eqnarray*}
-          &&S = \big\{ z= r \exp(i \varphi)\in \C : \qquad 0<r<1, \ 0<\varphi <\frac{3}{2}\pi \big\} \\ 
-          &&u_0 =\Re(z^{\frac{2}{3}}-z^{-\frac{2}{3}})
-	\end{eqnarray*}\hspace{6cm}	\vspace{-2cm}
-\begin{tikzpicture}[rotate=180, scale=0.25]
+\begin{Beispiel}\
+\begin{figure}[H]
+%%%%
+\vspace{-1.6cm} \begin{minipage}[htb]{0,57\textwidth}
+		 \begin{flalign*}
+   &S = \big\{ z= r \exp(i \varphi)\in \C : \qquad 0<r<1, \ 0<\varphi <\frac{3}{2}\pi \big\} \\ 
+          &u_0 =\Re(z^{\frac{2}{3}}-z^{-\frac{2}{3}})
+	\end{flalign*}\end{minipage}
+	%%%%%
+	\begin{minipage}[htb]{0,28\textwidth}
+		 \begin{tikzpicture}[rotate=180, scale=0.25]
     \draw[violet, fill=violet!10] (4,0) arc(90:-180:4) -- (4,-4) 
       -- node[above, black]{} (4,-2)  -- (4,0);
     \draw[<-]  (3.9,-3.9) -- node[below]{ \qquad \qquad \qquad \qquad \ \  Singularitätsstelle} (2,-2);
      \draw[<-]  (-0.1,-4.1) -- node[]{    \ \ \ \ \ 0} (-1,-4.5);
           \draw[<-]  (4,0) -- node[below]{ \ \ \ \ \  0} (3,1);
                     \draw[<-]  (4,-8) -- node[]{ \ \ \ \ \  \ \ \ 0} (2,-9);
-
     \draw[fill=black] (4,-4) circle(.08);
         \draw[fill=black] (0,-4) circle(.08);
             \draw[fill=black] (4,0)  circle(.08);
-  \end{tikzpicture}
+  \end{tikzpicture} \end{minipage}
+\end{figure}
 \end{Beispiel}
-	\underline{Holomorph in S $\Longrightarrow \Delta u_0 =0$}\\ \newline
-Falls  $\nabla u_0 \notin L_2(S)$, \ $\Delta u=0$ und $ \nabla u \in L_2$ gilt \\ $\Longrightarrow$ \qquad u ist eindeutig durch die Randwerte bestimmt.
+\vspace{-1cm}	\underline{Holomorph in S $\Longrightarrow \Delta u_0 =0$}\\ \newline
+Falls  $\nabla u_0 \notin L_2(S)$, \ $\Delta u=0$ und $ \nabla u \in L_2$ gilt \\ $\Longrightarrow$ \qquad u ist eindeutig durch die Randwerte bestimmt. \\
 
-\underline{\textbf{Spezielle Lösungen der Poisson-Gleichung}}
+\underline{\textbf{Spezielle Lösungen der Poisson-Gleichung} $(-\Delta f=0 )$}
 \begin{align*}
-        &\text{def. Fundementallösungen  }   &&  \phi(x) = \begin{cases}-\frac{1}{2\pi} \log|x|  &D=2\\-\frac{1}{4\pi} \frac{1}{|x|} &D=3 \end{cases} \\
+       \qquad \ \ \hspace{0.0cm} &\text{def. Fundementallösungen  }   &&  \phi(x) = \begin{cases}-\frac{1}{2\pi} \log|x|  &D=2\\-\frac{1}{4\pi} \frac{1}{|x|} &D=3 \end{cases} \\
         &\nabla \phi(x) = \begin{cases}-\frac{1}{2\pi} \frac{1}{|x|^2}x &D=2 \\ -\frac{1}{4\pi} \frac{1}{|x|^3}x & D=1\end{cases}  && \text{} \\
         &\text{radiale Koordinaten}	    &&\Delta \phi(x) = \begin{cases}\frac{1}{r}\partial_r \big(r \partial_r \varphi(r)\big) &2D \qquad \\\frac{1}{r^2}\partial_r^2 \big(r \varphi(r)\big) &3D \qquad  \end{cases}\Delta \phi =0 \text{ in } \ \R^D \backslash \{ 0\}
             \end{align*}
-
-\begin{Definition}
-    \begin{eqnarray*}
-    \underline{\text{Def:}} &&u(x) = \int_{\Omega} \phi (x-y) f(y) \dy \\
-    &&-\Delta x \int_{B_R (x)}\phi(x-y) \dy = -  \int_{B_R (x)} \Delta x\phi(x-y) \dy = -  \int_{|x-y|=R} \Delta x\phi(x-y) \frac{x-y_0}{|x-y_0|} \da\\
-    &&\frac{1}{|\partial B_1 (x)|}\int_{|x-y_0|=R} \frac{x-y}{|x-y|^D} \frac{x-y_0}{x-y_0} \da  \ \mathop{\mathrm{\longrightarrow}}\limits_{R \rightarrow 0} \ 1
-    \end{eqnarray*}
+    \begin{align*}
+    \underline{\text{Def:}} \ \ &u(x) = \int_{\Omega} \phi (x-y) f(y) \dy \\
+    &-\Delta x \int_{B_R (x)}\phi(x-y) \dy = -  \int_{B_R (x)} \Delta x\phi(x-y) \dy = -  \int_{|x-y|=R} \Delta x\phi(x-y) \frac{x-y_0}{|x-y_0|} \da\\
+    &=\frac{1}{|\partial B_1 (x)|}\int_{|x-y_0|=R} \frac{x-y}{|x-y|^D} \frac{x-y_0}{x-y_0} \da  \ \mathop{\mathrm{\longrightarrow}}\limits_{R \rightarrow 0} \ 1
+    \end{align*}
   $  \Longrightarrow \qquad - \Delta u(x)= f(x)$
-  \end{Definition}
 
-\textbf{Ein Beispiel für ein Finites Element} \\
-Sei $\Omega \subset \R^2$ ein beschränktes Polygongebiet und $\overline\Omega = \cup \overline{K}$ eine Zerlegung in Dreiecke. \\
+\textbf{Ein Beispiel für ein Finites Element} \\ \\
+Sei $\Omega \subset \R^2$ ein beschränktes Polygongebiet und $\overline\Omega = \cup \overline{K}$ eine Zerlegung in Dreiecke. 
+  \begin{figure}[H]
+\centering
+\includegraphics[scale=.7]{grafik/Zeichnung.eps}
+\caption{ $\overline\Omega$ Zerlegung in Dreiecke}
+\label{Zerlegung in Dreiecke}
+\end{figure}
 Finites Element $(K,V_K,\Lambda_K)$ mit K-Zelle. Hier ist $\overline{K}= \conv\{ z_0, z_1, z_2\}$
-
  \begin{align*}
         &V:K = \P_1(K)   && \qquad \qquad \text{Ansatzraum} \\
         &\Lambda_K=\span\{ \lambda_0, \lambda_1, \lambda_2\} \subset V_K`\subset \bC(K) && \hspace{-2.55cm}\text{Feiheitsgrade mit}\  <\lambda_k,\phi>=\phi(z_K) \\
-        &\underline{\text{def. }} V_h = \{ v_h \in \bC(\overline{\Omega}) : v_K \in V_K\}
+        \underline{\text{def:}} \ &V_h = \{ v_h \in \bC(\overline{\Omega}) : v_K \in V_K\}
             \end{align*}
-            \\
-            
-            
-            
             \textbf{Aufgaben}
 \begin{enumerate}[1)]
   \item Def. eindeutige Approximation $u_h \in V_h$ zu $u$.
@@ -462,26 +468,37 @@ Finites Element $(K,V_K,\Lambda_K)$ mit K-Zelle. Hier ist $\overline{K}= \conv\{
 \begin{enumerate}[A)]
   \item Abstrakte Approximations und Lösungsidee- Theorie, die möglichst viele Anwendungen hat.
       \item Gro\ss e Vielfalt von Methoden, um für konkrete Anwendungen eine optional Methode zu finden.
-     
           \end{enumerate}
+          \newpage
+          
+          
+          
+          
+          
+          
+          
           
           \textbf{Wiederholung:}
           \textbf{1. PDE Modelle}
-          \textbf{1.1 Elliptische Modellprobleme} \\Laplace $\Delta u = 0$ ; Poisson $-\Delta u = f$ in $\Omega \subset \R^D \rightarrow$ Randwerte erforderlich! Bsp in 2 D GRAFIK1 
+          \textbf{1.1 Elliptische Modellprobleme} \\Laplace $\Delta u = 0$ ; Poisson $-\Delta u = f$ in $\Omega \subset \R^D \rightarrow$ Randwerte erforderlich! Bsp. in 2 D\\ \begin{figure}[H]
+\centering
+\includegraphics[scale=.7]{grafik/Zeichnung-2.eps}
+\caption{Digraph.}
+\label{fig:digraph}
+\end{figure} -Lineare Elemente erfüllen Laplace
 \subsection{Diffusions-Konvektions-Reaktionssysteme}
-
     \begin{align*}
-        \text{gesucht:}&  &&u&&:&& \overline{\Omega} \times I \rightarrow \R && \Omega \subset \R^D \text{ beschränktes Gebiet } \ \ &&I=[0,T] \text{ Zeitintervall }\\
-        \text{Daten:}& &&\kappa&& :&&  \overline{\Omega} \rightarrow \R^{D\times D}        && \text{Diffusionstensor} \\
+        &\text{gesucht:}  &&u&&:&& \overline{\Omega} \times I \rightarrow \R && \Omega \subset \R^D \text{ beschränktes Gebiet } \ \ &&I=[0,T] \text{ Zeitintervall }\\
+        &\text{Daten:} &&\kappa&& :&&  \overline{\Omega} \rightarrow \R^{D\times D}        && \text{Diffusionstensor} \\
                 & &&q&&:&&  \overline{\Omega} \rightarrow \R^{D\times D}                        && \text{Flussvektor} \\
                 & &&r&&:&&  \Omega \rightarrow \R                      && \text{Reaktionsrate} \\
                 & &&f&&:&&  \Omega \rightarrow \R                        && \text{Quellen und Senken} \\
                 & &&u_D&&:&&  \Gamma_D \times I \rightarrow \R                       && \text{Dirichlet Randwerte} \\
                 & &&u_N&&:&&  \Gamma_N \times I  \rightarrow \R                        && \text{Neumann-Randbedingung} &&\text{,wobei }\Gamma_N \cup \Gamma_R \cup \Gamma_D = \partial \Omega \\
                 & &&u_R&&:&& \Gamma_R \times I  \rightarrow \R                        && \text{Robin-Randbedingung} \\ 
-                & &&\alpha&&:&&  \Gamma_R \times I  \rightarrow \R                       && \text{Randkapazität}           \end{align*}
+                & &&\alpha&&:&&  \Gamma_R  \rightarrow \R                       && \text{Randkapazität}           \end{align*}
 
-\textbf{Konstitutionsgleichung}\\
+\textbf{Konstitutionsgleichung}
     \begin{align*}
         \text{Fluss:}\qquad \sigma =-\kappa \nabla u \\
     \end{align*}
@@ -495,16 +512,16 @@ Finites Element $(K,V_K,\Lambda_K)$ mit K-Zelle. Hier ist $\overline{K}= \conv\{
 \partial_t u= -\div \sigma + f +ru \qquad \Longrightarrow \qquad &\partial_t u -\div \kappa \nabla u + \div(qu)-ru = f \\ &\partial_t u -\div \kappa \nabla u + q\nabla u + \underbrace{(\div q- r)u}_{\rs} = f        \end{align*}
       
         
-        Randwerte:
+        \underline{Randwerte:}
             \begin{align*}
-        &u = u_D    &&\text{auf } \Gamma_D \times I \\
-        &\sigma \cdot n = g_N    &&\text{auf } \Gamma_N \times I \\
-        &\sigma \cdot n  + \alpha u = g_R    &&\text{auf } \Gamma_R \times I \\
+\qquad\qquad\qquad   \qquad   u &= u_D    &\text{auf } \Gamma_D \times I & \qquad\qquad \qquad\qquad\qquad \qquad  \qquad \qquad\\
+        \sigma \cdot n &= g_N    &\text{auf } \Gamma_N \times I \\
+        \sigma \cdot n  + \alpha u &= g_R    &\text{auf } \Gamma_R \times I \\
     \end{align*}
     \textbf{Spezialfälle:}
     \begin{enumerate}[A)]
-  \item stationär $$-\div x \nabla + 1 \cdot \nabla u + \hat{r}u= f \qquad \text{  (unabhängig von t)}$$
-      \item            \begin{align*}
+  \item stationär $$-\div ( \kappa \nabla) + 1 \cdot \nabla u + \rs u= f \qquad \text{  (unabhängig von t)}$$
+      \item $\kappa = I_D \ \ \ \ q=0, r=0: \ \ -\Delta u =f $          \begin{align*}
         &x = I_D 1=0, r=0    &&-\Delta u =f && \text{Poisson-Gleichung elliptisches Modellproblem} \\
         &    &&\underbrace{\partial_t u =\Delta u}_{\text{spezielle Lösung in } \R^D: \qquad u(x,t)= (4 \pi t)^{-D/2} \int_{\R^D} \exp(- \frac{|x-y|}{4t}u_0(y) \dy \text{ mit } u(x,0)= u_0(x)} &&\text{Wärmeleitungsproblem parabolische Modellproblem}\\
     \end{align*} 

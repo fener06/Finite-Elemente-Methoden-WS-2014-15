@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.15)  27 OCT 2014 11:55
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.15)  29 OCT 2014 01:33
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -258,6 +258,58 @@ Grid set 16 x 16 = 38.39343pt x 49.68562pt
 Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks45
 )
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf.sty
+Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
+Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
+))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/etexcmds.sty
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifluatex.sty
+Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
+Package ifluatex Info: LuaTeX not detected.
+)
+Package etexcmds Info: Could not find \expanded.
+(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
+(etexcmds)             that some package has redefined \expanded.
+(etexcmds)             In the latter case, load this package earlier.
+)))
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/ifpdf.sty
+Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
+Package ifpdf Info: pdfTeX in PDF mode is detected.
+)
+Package pdftexcmds Info: LuaTeX not detected.
+Package pdftexcmds Info: \pdf@primitive is available.
+Package pdftexcmds Info: \pdf@ifprimitive is available.
+Package pdftexcmds Info: \pdfdraftmode found.
+)
+Package grfext Info: Graphics extension search list:
+(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
+G,.JBIG2,.JB2,.eps]
+(grfext)             \AppendGraphicsExtensions on input line 452.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+)))
 (/usr/local/texlive/2013/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
 \c@float@type=\count109
@@ -815,26 +867,15 @@ Package: hobsub-generic 2012/05/28 v1.13 Bundle oberdiek, subset generic (HO)
 Package: hobsub 2012/05/28 v1.13 Construct package bundles (HO)
 Package hobsub Info: Skipping package `infwarerr' (already loaded).
 Package hobsub Info: Skipping package `ltxcmds' (already loaded).
-Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
-Package ifluatex Info: LuaTeX not detected.
+Package hobsub Info: Skipping package `ifluatex' (already loaded).
 Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 Package: intcalc 2007/09/27 v1.1 Expandable calculations with integers (HO)
-Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
-Package ifpdf Info: pdfTeX in PDF mode is detected.
-Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
-Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
-Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
-Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
-)
-Package pdftexcmds Info: LuaTeX not detected.
-Package pdftexcmds Info: \pdf@primitive is available.
-Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode found.
+Package hobsub Info: Skipping package `ifpdf' (already loaded).
+Package hobsub Info: Skipping package `etexcmds' (already loaded).
+Package hobsub Info: Skipping package `kvsetkeys' (already loaded).
+Package hobsub Info: Skipping package `kvdefinekeys' (already loaded).
+Package hobsub Info: Skipping package `pdftexcmds' (already loaded).
 Package: pdfescape 2011/11/25 v1.13 Implements pdfTeX's escape features (HO)
 Package: bigintcalc 2012/04/08 v1.3 Expandable calculations on big integers (HO
 )
@@ -856,9 +897,6 @@ Package: ifxetex 2010/09/12 v0.6 Provides ifxetex conditional
 )
 (/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/auxhook.sty
 Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
 \@linkdim=\dimen175
 \Hy@linkcounter=\count129
@@ -989,7 +1027,11 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 \c@currZyklische Reduktionctr=\count202
 \c@endZyklische Reduktionctr=\count203
 
-(./NA3.aux (./NA3_0.aux) (./NA3_1.aux))
+(./NA3.aux (./NA3_0.aux)
+
+LaTeX Warning: Label `fig:digraph' multiply defined.
+
+(./NA3_1.aux))
 \openout1 = `NA3.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 329.
@@ -1007,8 +1049,7 @@ LaTeX Font Info:    ... okay on input line 329.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 329.
 LaTeX Font Info:    ... okay on input line 329.
 LaTeX Font Info:    Try loading font information for T1+ptm on input line 329.
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/t1ptm.fd
+ (/usr/local/texlive/2013/texmf-dist/tex/latex/psnfss/t1ptm.fd
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 )
 (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
@@ -1024,22 +1065,7 @@ File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
 \MPnumerator=\count208
 \makeMPintoPDFobject=\count209
 \everyMPtoPDFconversion=\toks62
-) (/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
-Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
-)
-Package grfext Info: Graphics extension search list:
-(grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
-G,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 452.
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
-File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
-e
-))
-ABD: EveryShipout initializing macros
+) ABD: EveryShipout initializing macros
 \AtBeginShipoutBox=\box42
 Package hyperref Info: Link coloring ON on input line 329.
 
@@ -1137,85 +1163,154 @@ LaTeX Font Info:    Try loading font information for U+stmry on input line 2.
 ] [3
 
 ])
+Package epstopdf Info: Source file: <grafik/Zeichnung-4.eps>
+(epstopdf)                    date: 2014-10-28 19:46:36
+(epstopdf)                    size: 8059 bytes
+(epstopdf)             Output file: <grafik/Zeichnung-4-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-10-28 19:46:44
+(epstopdf)                    size: 4580 bytes
+(epstopdf)             Command: <repstopdf --outfile=grafik/Zeichnung-4-eps-con
+verted-to.pdf grafik/Zeichnung-4.eps>
+(epstopdf)             \includegraphics on input line 353.
+Package epstopdf Info: Output file is already uptodate.
 
-Package mathptmx Warning: There are no bold math fonts on input line 364.
+<grafik/Zeichnung-4-eps-converted-to.pdf, id=66, 98.3675pt x 99.37125pt>
+File: grafik/Zeichnung-4-eps-converted-to.pdf Graphic file (type pdf)
+
+<use grafik/Zeichnung-4-eps-converted-to.pdf>
+Package pdftex.def Info: grafik/Zeichnung-4-eps-converted-to.pdf used on input 
+line 353.
+(pdftex.def)             Requested size: 68.85675pt x 69.55939pt.
+
+
+Package mathptmx Warning: There are no bold math fonts on input line 370.
 
 Package hyperref Info: bookmark level for unknown Satz defaults to 0 on input l
-ine 364.
+ine 370.
 Package hyperref Info: bookmark level for unknown proof defaults to 0 on input 
-line 369.
+line 375.
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--377
+Underfull \hbox (badness 10000) in paragraph at lines 378--383
 
  []
 
-Package hyperref Info: bookmark level for unknown Spezielle L\IeC {\"o}sungen d
-efaults to 0 on input line 383.
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.397 	\end{eqnarray*}
-                       [1
+l.388 \begin{Spezielle Lösungen}\
+                                   [1
 
 
-]
+ <./grafik/Zeichnung-4-eps-converted-to.pdf>]
+Package hyperref Info: bookmark level for unknown Spezielle L\IeC {\"o}sungen d
+efaults to 0 on input line 388.
 Package hyperref Info: bookmark level for unknown Beispiel defaults to 0 on inp
-ut line 404.
+ut line 406.
 
-Underfull \hbox (badness 10000) in paragraph at lines 421--423
+Overfull \hbox (21.56076pt too wide) in paragraph at lines 413--413
+[] 
+ []
+
+
+Overfull \hbox (75.70378pt too wide) in paragraph at lines 426--426
+[][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 429--431
 
  []
 
-Package hyperref Info: bookmark level for unknown Definition defaults to 0 on i
-nput line 432.
 
-Overfull \hbox (49.11578pt too wide) in alignment at lines 432--436
- [][][] []
+Underfull \hbox (badness 10000) in paragraph at lines 429--431
+
+ []
+
+
+Overfull \hbox (17.01707pt too wide) in paragraph at lines 437--437
+[] 
+ []
+
+Package epstopdf Info: Source file: <grafik/Zeichnung.eps>
+(epstopdf)                    date: 2014-10-28 22:36:22
+(epstopdf)                    size: 22254 bytes
+(epstopdf)             Output file: <grafik/Zeichnung-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-10-28 22:36:38
+(epstopdf)                    size: 9180 bytes
+(epstopdf)             Command: <repstopdf --outfile=grafik/Zeichnung-eps-conve
+rted-to.pdf grafik/Zeichnung.eps>
+(epstopdf)             \includegraphics on input line 449.
+Package epstopdf Info: Output file is already uptodate.
+<grafik/Zeichnung-eps-converted-to.pdf, id=86, 255.95625pt x 133.49875pt>
+File: grafik/Zeichnung-eps-converted-to.pdf Graphic file (type pdf)
+
+<use grafik/Zeichnung-eps-converted-to.pdf>
+Package pdftex.def Info: grafik/Zeichnung-eps-converted-to.pdf used on input li
+ne 449.
+(pdftex.def)             Requested size: 179.16814pt x 93.44847pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 445--452
+
  []
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.448             \end{align*}
-                               [2]
-Underfull \hbox (badness 10000) in paragraph at lines 448--450
-
- []
-
-
-Overfull \hbox (13.21556pt too wide) in paragraph at lines 482--482
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 484--485
-
- []
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has 
-been already used, duplicate ignored
+l.453 F
+       inites Element $(K,V_K,\Lambda_K)$ mit K-Zelle. Hier ist $\overline{K...
+[2]pdfTeX warning (ext4): destination with the same identifier (name{page.3}) h
+as been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.492     \end{align*}
-                       [3]
-Overfull \hbox (263.372pt too wide) in paragraph at lines 510--510
+l.472           \newpage
+                         [3 <./grafik/Zeichnung-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <grafik/Zeichnung-2.eps>
+(epstopdf)                    date: 2014-10-28 19:37:30
+(epstopdf)                    size: 21353 bytes
+(epstopdf)             Output file: <grafik/Zeichnung-2-eps-converted-to.pdf>
+(epstopdf)                    date: 2014-10-29 01:16:00
+(epstopdf)                    size: 9010 bytes
+(epstopdf)             Command: <repstopdf --outfile=grafik/Zeichnung-2-eps-con
+verted-to.pdf grafik/Zeichnung-2.eps>
+(epstopdf)             \includegraphics on input line 485.
+Package epstopdf Info: Output file is already uptodate.
+
+<grafik/Zeichnung-2-eps-converted-to.pdf, id=106, 143.53625pt x 145.54375pt>
+File: grafik/Zeichnung-2-eps-converted-to.pdf Graphic file (type pdf)
+
+<use grafik/Zeichnung-2-eps-converted-to.pdf>
+Package pdftex.def Info: grafik/Zeichnung-2-eps-converted-to.pdf used on input 
+line 485.
+(pdftex.def)             Requested size: 100.47467pt x 101.87991pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 481--488
+
+ []
+
+
+Overfull \hbox (13.21556pt too wide) in paragraph at lines 499--499
+[] 
+ []
+
+[4 <./grafik/Zeichnung-2-eps-converted-to.pdf>]
+Overfull \hbox (263.372pt too wide) in paragraph at lines 527--527
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 510--514
+Underfull \hbox (badness 10000) in paragraph at lines 527--531
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 516--517
+Underfull \hbox (badness 10000) in paragraph at lines 533--534
 
  []
 
-[4]
-Overfull \hbox (10.88701pt too wide) in paragraph at lines 520--523
+
+Overfull \hbox (10.88701pt too wide) in paragraph at lines 537--540
 \T1/ptm/m/n/12 betrachte $\OML/ztmcm/m/it/12 ' \OT1/ztmcm/m/n/12 : [] \OMS/ztmc
 m/m/n/12 ! \OML/ztmcm/m/it/12 
 $ \T1/ptm/m/n/12 li-ne-ar af-fi-ne Trans-for-ma-ti-on: $\OML/ztmcm/m/it/12 '\OT
@@ -1225,12 +1320,12 @@ t/12 F[]$ \T1/ptm/m/n/12 mit $\OML/ztmcm/m/it/12 F \OMS/ztmcm/m/n/12 2 \U/msb/m
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 520--523
+Underfull \hbox (badness 10000) in paragraph at lines 537--540
 
  []
 
 
-Overfull \hbox (33.4027pt too wide) in paragraph at lines 524--528
+Overfull \hbox (33.4027pt too wide) in paragraph at lines 541--545
 \OMS/ztmcm/m/n/12 ) [][] \OML/ztmcm/m/it/12 ^^[\OT1/ztmcm/m/n/12 (\OML/ztmcm/m/
 it/12 x\OT1/ztmcm/m/n/12 ) = [] \OML/ztmcm/m/it/12 D[]^^[\OT1/ztmcm/m/n/12 (\OM
 L/ztmcm/m/it/12 x\OT1/ztmcm/m/n/12 ) = [](\OML/ztmcm/m/it/12 D[][]\OT1/ztmcm/m/
@@ -1239,23 +1334,25 @@ n/12 ([])\OML/ztmcm/m/it/12 F[]\OT1/ztmcm/m/n/12 ) = [](\OML/ztmcm/m/it/12 F[]D
 []) =
  []
 
-[5]
+[5] [6]
 \openout2 = `NA3_1.aux'.
 
  (./NA3_1.tex
 Package hyperref Info: bookmark level for unknown Bezeichnung defaults to 0 on 
 input line 15.
- [6
+ [7
 
 ]
 Package hyperref Info: bookmark level for unknown Anwendung defaults to 0 on in
 put line 85.
 Package hyperref Info: bookmark level for unknown Entdimensionalisierung defaul
 ts to 0 on input line 135.
- [7]
+ [8]
 Package hyperref Info: bookmark level for unknown Spezialf\IeC {\"a}lle default
 s to 0 on input line 181.
- [8]
+Package hyperref Info: bookmark level for unknown Definition defaults to 0 on i
+nput line 205.
+ [9]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 243.
 Package hyperref Info: bookmark level for unknown Bemerkung defaults to 0 on in
@@ -1264,27 +1361,32 @@ Package hyperref Info: bookmark level for unknown Maximumsprinzip defaults to 0
  on input line 260.
 Package hyperref Info: bookmark level for unknown Folgerung defaults to 0 on in
 put line 275.
- [9]) [10]
+ [10]) [11]
 \tf@thm=\write6
 \openout6 = `NA3.thm'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 555.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 555.
- (./NA3.aux (./NA3_0.aux) (./NA3_1.aux))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 555.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 555.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 572.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 572.
+ (./NA3.aux (./NA3_0.aux)
+(./NA3_1.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 572.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 572.
 Package rerunfilecheck Info: File `NA3.out' has not changed.
 (rerunfilecheck)             Checksum: C1207319A2D6631B41538E6ED3DF6807;577.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 555.
+
+
+LaTeX Warning: There were multiply-defined labels.
+
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 572.
  ) 
 Here is how much of TeX's memory you used:
- 16928 strings out of 493315
- 293892 string characters out of 6137904
- 381928 words of memory out of 5000000
- 19910 multiletter control sequences out of 15000+600000
+ 16978 strings out of 493315
+ 295632 string characters out of 6137904
+ 382167 words of memory out of 5000000
+ 19932 multiletter control sequences out of 15000+600000
  61489 words of font info for 100 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 56i,18n,55p,411b,635s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,18n,55p,411b,804s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2013/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/te
 xlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/tex
@@ -1298,10 +1400,10 @@ nts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/
 urw/times/utmbi8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times
 /utmr8a.pfb></usr/local/texlive/2013/texmf-dist/fonts/type1/urw/times/utmri8a.p
 fb>
-Output written on NA3.pdf (13 pages, 815411 bytes).
+Output written on NA3.pdf (14 pages, 833158 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
- 196 compressed objects within 2 object streams
- 71 named destinations out of 1000 (max. 500000)
- 82 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 244 PDF objects out of 1000 (max. 8388607)
+ 209 compressed objects within 3 object streams
+ 74 named destinations out of 1000 (max. 500000)
+ 97 words of extra memory for PDF output out of 10000 (max. 10000000)
 
