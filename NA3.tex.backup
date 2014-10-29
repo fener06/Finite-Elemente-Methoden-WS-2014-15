@@ -1,0 +1,314 @@
+\documentclass[12pt,twoside,reqno]{article}
+%\documentclass[11pt,twoside,reqno]{article}
+
+
+\usepackage{ngerman}
+\usepackage{amsmath}
+\usepackage{amsbsy,wasysym}
+\usepackage{fleqn}
+\usepackage{latexsym}
+\usepackage{epsfig}
+\usepackage{amssymb}
+\usepackage[version=3]{mhchem}
+
+%\usepackage{mythm}
+%\usepackage{amsthm}
+
+\usepackage[amsmath,amsthm,thmmarks]{ntheorem}
+\usepackage{textpos}
+\usepackage{enumerate}
+
+\usepackage{float}
+\usepackage[latin1]{inputenc}
+\usepackage{t1enc}
+
+\usepackage{times}
+\usepackage{mathptmx}
+
+%\usepackage[colorlinks=false,
+\usepackage[colorlinks=true,
+            pdftitle={Lectures},
+            pdfauthor={Christian Wieners},
+            pdfpagemode={UseOutlines},pdfstartview={Fit},
+            linkcolor=blue,urlcolor=blue,
+%            linkcolor=black,urlcolor=black,
+            pdfsubject={Numerik III}]{hyperref}
+
+%\renewcommand{\rmdefault}{phv}
+
+\textwidth 151mm
+\textheight246mm
+\topmargin-20mm
+\evensidemargin0mm
+\oddsidemargin8.0mm
+\parindent=0pt
+\parskip=3pt plus 1pt
+%\normalparindent=0pt
+\mathindent = 15mm
+
+\newcommand{\mbf}[1]{\mathbf #1}  % fette Griechen
+\newcommand{\cbf}[1]{{\mbox{\boldmath${\mathcal #1}$}}}  % fett Cal
+
+\restylefloat{figure}
+\restylefloat{table}
+
+\newcommand\GL{\text{GL}}
+\newcommand\Real{\mathbb{R}}
+\newcommand\Natural{\mathbb{N}}
+\newcommand\Complex{\mathbb{C}}
+\newcommand\Integer{\mathbb{N}}
+\newcommand\Polynom{\mathbb{P}}
+
+\newcommand{\oh}{\frac{1}{2}} % oh -> one half
+
+\newcommand\frachalf{\mbox{\large $\frac12$}}
+%\newcommand\sL{\mathrm{sl}}
+\newcommand\SL{\mathrm{SL}}
+\newcommand\bsl{\mathbf{sl}}
+\newcommand\bSL{\mathbf{SL}}
+
+\renewcommand{\d}{\,\mathrm{d}}
+\newcommand{\dx}{\,\mathrm{d}x}
+\newcommand{\da}{\,\mathrm{d}a}
+\newcommand{\dt}{\,\mathrm{d}t}
+
+\newcommand{\Nodes}{\mathcal{V}_h}
+\newcommand{\Faces}{\mathcal{E}_h}
+\newcommand{\FacesInterior}{\Faces^\text{int}}
+
+\newcommand{\TriangulationLetter}{\mathcal{T}}
+\newcommand{\Triangulation}{\TriangulationLetter_h}
+
+\newcommand{\FEMLinear}{\mathcal{S}_h^1}
+
+\newcommand{\term}[1]{\emph{#1}}
+
+
+\newcommand\sym{\operatorname*{sym}}
+\newcommand\supp{\operatorname*{supp}}
+\newcommand\Span{\operatorname*{span}}
+\newcommand\Spur{\operatorname*{Spur}}
+\newcommand\rank{\operatorname*{rank}}
+\newcommand\interior{\operatorname*{int}}
+\newcommand\rang{\operatorname*{rang}}
+\newcommand\curl{\operatorname{curl}}
+\newcommand\const{\operatorname*{const}}
+\newcommand\grad{\operatorname*{grad}}
+\newcommand\Hess{\operatorname{Hess}}
+\newcommand\dev{\operatorname*{dev}}
+\newcommand\Kern{\operatorname*{Kern}}
+\newcommand\diag{\operatorname*{diag}}
+\newcommand\Diag{\operatorname*{diag}}
+\newcommand\tridiag{\operatorname*{tridiag}}
+\newcommand\Lower{\operatorname*{lower}}
+\newcommand\Upper{\operatorname*{upper}}
+\newcommand\dist{\operatorname*{dist}}
+\newcommand\tr{\operatorname*{trace}}
+\newcommand\dom{\operatorname*{dom}}
+\renewcommand\div{\operatorname{div}}
+\renewcommand\Im{\operatorname*{Im}}
+\newcommand\dest{\operatorname{dest}}
+\newcommand\id{\operatorname{id}}
+\newcommand\polar{\operatorname{polar}}
+% \renewcommand\inf{\operatorname*{\phantom{p}\!{\rm inf}\!\phantom{p}}}
+\newcommand\EN{|\!|\!|}
+\newcommand\call[1]{{\sc #1}\index{#1}}
+\newcommand\meas{\operatorname{meas}}
+
+\newcommand\conv{\operatorname*{conv}}
+\newcommand\sgn{\operatorname*{sgn}}
+\renewcommand\Re{\operatorname*{Re}}
+\newcommand\diam{\operatorname*{diam}}
+
+\newcommand\Epsilon{\mathcal{E}}
+
+\newcommand\Sym{\operatorname{Sym}}
+\renewcommand\skew{\operatorname{skew}}
+\newcommand\anti{\operatorname{anti}}
+\renewcommand\eqsim{\begin{array}{c}\\[-4mm]=\\[-3.2mm] \sim\end{array}}
+
+\def\u#1{\underline{#1}}
+\def\b#1{\boldsymbol{#1}}
+%\def\b#1{\mathbf{#1}}
+\def\m#1{\mathcal{#1}}
+%\def\o#1{\overline{#1}}
+\def\i{{\mathrm i}}
+
+%�NDERUNG DER GRIECHISCHEN BUCHSTABEN
+\mathchardef\bGamma="0100
+\mathchardef\bDelta="0101
+\mathchardef\bTheta="0102
+\mathchardef\bLambda="0103
+\mathchardef\bXi="0104
+\mathchardef\bPi="0105
+\mathchardef\bSigma="0106
+\mathchardef\bUpsilon="0107
+\mathchardef\bPhi="0108
+\mathchardef\bPsi="0109
+\mathchardef\bOmega="010A
+\renewcommand{\Omega}{\bOmega}
+\renewcommand{\Psi}{\bPsi}
+\renewcommand{\Phi}{\bPhi}
+\renewcommand{\Xi}{\bXi}
+\renewcommand{\Gamma}{\bGamma}
+\renewcommand{\Upsilon}{\bUpsilon}
+
+
+
+% 4th order tensors
+\newcommand\bII{{\mathbb{I}}}    % identity
+\newcommand\bCC{{\mathbb{C}}}    % consistent tangent
+\newcommand\bGG{{\mathbb{G}}}
+\newcommand\bPP{{\mathbb{P}}}    % deviatoric projection tensor
+\newcommand\Ttt{{_{23} \atop T}} % 2-3 transposition of identity
+\newcommand\Ttf{{_{24} \atop T}} % 2-4 transposition of identity
+\newcommand\Tot{{_{13} \atop T}} % 1-3 transposition of identity
+
+% matrices
+\newcommand\bI{1\!\!1 }
+\newcommand\Id{\operatorname*{Id}}
+\newcommand\bC{\mathbf{C}}
+\newcommand\bD{\mathbf{D}}
+\newcommand\bF{\mathbf{F}}
+\newcommand\bE{\mathbf{E}}
+\newcommand\bH{\mathbf{H}}
+\newcommand\bK{\mathbf K}
+\newcommand\bM{\mathbf{M}}
+\newcommand\bS{\mathbf{S}}
+\newcommand\bP{\mathbf{P}}
+
+% vectors
+\def\beps{\text{\boldmath$\varepsilon$\unboldmath}}
+\def\bphi{{\text{\boldmath$\varphi$\unboldmath}}}
+\def\btheta{{\text{\boldmath$\theta$\unboldmath}}}
+\def\bfeta{{\text{\boldmath$\eta$\unboldmath}}}
+\def\bpsi{{\text{\boldmath$\psi$\unboldmath}}}
+\def\brho{{\text{\boldmath$\rho$\unboldmath}}}
+\def\bsigma{\text{\boldmath$\sigma$\unboldmath}}
+\def\btau{{\text{\boldmath$\tau$\unboldmath}}}
+\def\bxi{{\text{\boldmath$\xi$\unboldmath}}}
+\def\bkappa{{\text{\boldmath$\kappa$\unboldmath}}}
+
+\def\bLambda{\text{\boldmath$\Lambda$\unboldmath}}
+\def\bSigma{\text{\boldmath$\Sigma$\unboldmath}}
+\def\bXi{{\text{\boldmath$\Xi$\unboldmath}}}
+
+\def\vecnull{\hbox{\small{\bf 0}}}
+\newcommand\Chi{\chi}
+\newcommand\hchi{{\hat\chi}}
+
+%%%%%%%%%%%%%%%%%%%%%%%% Styles-Neff
+
+\newcommand{\Dphi}{\nabla\! \mathbf{\varphi}}
+\renewcommand{\epsilon}{\varepsilon}
+\newcommand{\dS}{\,{\rm dS} }
+\newcommand{\dV}{\,{\rm dV} }
+%\newcommand{\dom}{\,{\rm d}\omega }
+\newcommand{\norm}[1]{\|#1\|}
+
+\newcommand{\Proof}{{\bf Beweis:\;}}
+
+%\newcommand{\Chi}{\raisebox{0.5ex}{\mbox{{\Large $\chi$}}}}
+\newcommand{\flow}{\mbox{{\Large $\mathfrak{f}$}}}
+\newcommand{\yieldlimit}{\sigma_{\mathrm{y}}}
+\newcommand{\ddelta}{\mbox{\tiny $\Delta$}}
+
+\newcommand{\Mprod}[2]{ {\langle #1 ,#2\rangle} }
+\newcommand{\skp}[3]{\langle #1,#2\rangle_#3}
+%\newcommand{\id}{ {1\!\!\!\:1 } }
+%\newcommand{\qed}{\hfill $\blacksquare$\\}
+\newcommand{\qeda}{\tag*{$\blacksquare$} }
+
+\newcommand{\lc}{\mathit{l}_c}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\M}{\mathbb{M}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\renewcommand{\S}{\mathbb{S}}
+
+\def\ul#1{\underline #1}
+\def\dis{\displaystyle}
+\def\ul{\underline}
+
+\newenvironment{rcases}{%
+  \left.\renewcommand*\lbrace.%
+  \begin{cases}}%
+{\end{cases}\right\rbrace}
+
+\makeatletter
+\newtheoremstyle{TheoWieners}%
+  {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+          (##2)\ ##1\theorem@separator}\hbox{\strut}}}]}%
+  {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+          (##2)\ ##1\ (##3)\theorem@separator}\hbox{\strut}}}]}
+\newtheoremstyle{app}%
+  {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+           ##1\theorem@separator}\hbox{\strut}}}]}%
+  {\item[\rlap{\vbox{\hbox{\hskip\labelsep \theorem@headerfont
+          ##3\theorem@separator}\hbox{\strut}}}]}
+\makeatother
+
+\newtheorem{theow}{theow}[section]
+\theoremstyle{TheoWieners}
+\newtheorem{Satz}[theow]{Satz}
+\newtheorem{Lemma}[theow]{Lemma}
+\newtheorem{Folgerung}[theow]{Folgerung}
+\newtheorem{Hilfssatz}[theow]{Hilfssatz}
+\newtheorem{Bezeichnungen}[theow]{Bezeichnungen}
+\newtheorem{Definition}[theow]{Definition}
+\newtheorem{Aufgabe}[theow]{Aufgabe}
+\newtheorem{Problem}[theow]{Problem}
+\newtheorem{Maximumsprinzip}[theow]{Maximumsprinzip}
+
+\theoremstyle{break}
+\newtheorem{Bem}{Bem}
+\newtheorem*{Bemerkung}[Bem]{Bemerkung}
+\newtheorem*{Beispiel}[Bem]{Beispiel}
+\newtheorem*{Bezeichnung}[Bem]{Bezeichnungen}
+\newtheorem*{Anwendung}[Bem]{Anwendung}
+\newtheorem*{Ausblick}[Bem]{Ausblick}
+\newtheorem*{Folgerungen}[Bem]{Folgerung}
+\newtheorem*{Algorithmus}[Bem]{Algorithmus}
+\newtheorem*{Autonomisierung}[Bem]{Autonomisierung}
+\newtheorem*{NichtlineareAnwendung}[Bem]{Nichtlineare Anwendung}
+
+
+\theoremstyle{app}
+\newtheorem{app}{app}
+\newtheorem{anwend}[app]{Anwendungen}
+\newtheorem{Spezialf\"alle}[app]{Spezialf\"alle}
+\newtheorem{Implementation}[app]{Implementation}
+\newtheorem{Entdimensionalisierung}[app]{Entdimensionalisierung}
+\newtheorem{Kartesische Gitter in 2-d}[app]{Kartesische Gitter in 2-d}
+\newtheorem{Diskretisierungen hoher Ordnung}[app]{Diskretisierungen hoher Ordnung}
+\newtheorem{Zyklische Reduktion}[app]{Zyklische Reduktion}
+
+
+\newcommand{\korrektur}[1]{BIS HIER VON \emph{#1} KORREKTUR GELESEN.\\}
+
+\renewcommand{\proofname}{Beweis}
+
+\setlength{\theorempreskipamount}{0,5cm}
+
+\def\Nummer#1{\bigskip (#1)\qquad}
+
+
+\begin{document}
+
+\include{NA3_0}
+\include{NA3_1}
+\include{NA3_2}
+\include{NA3_3}
+\include{NA3_4}
+\include{NA3_5}
+% \include{NA6}
+% \include{NA7}
+%\include{App}
+%\include{Uebung}
+
+\clearpage
+
+\end{document}
